@@ -47,5 +47,5 @@ def video_download(videos: list, directory: str, create_directory: bool, convert
     print("Finished!")
     
 if __name__ == '__main__':
-    videos = ["https://www.youtube.com/watch?v=U_rWZK_8vUY","https://www.youtube.com/watch?v=x7xRPXky1JI","https://www.youtube.com/watch?v=51gUmSZbaeQ"]
+    videos = ["VIDEOS HERE"]
     video_download(videos=videos, directory='mp3_assets', create_directory=True, convert_to_mp3=True)
