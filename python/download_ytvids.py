@@ -1,6 +1,9 @@
+import os, shutil, sys
+
+os.system('pip install pytube python-ffmpeg')
+
 from pytube import YouTube as yt
-from ffmpeg import FFmpeg, Progress
-import os, shutil
+from ffmpeg import FFmpeg
 
 def video_download(videos: list, directory: str, create_directory: bool, convert_to_mp3: bool):
     """
@@ -47,5 +50,18 @@ def video_download(videos: list, directory: str, create_directory: bool, convert
     print("Finished!")
     
 if __name__ == '__main__':
-    videos = ["VIDEOS HERE"]
-    video_download(videos=videos, directory='mp3_assets', create_directory=True, convert_to_mp3=True)
+    videos = []
+    if sys.platform != 'win32':
+        os.system('clear')
+    else:
+        os.system('cls')
+    
+    print("YT VIDEO DOWNLOADER")
+    r = int(input("How many videos would you like to download?: "))
+    for vids in range(r):
+        videos.append(input(f"Enter video link for the video {vids + 1}: "))
+    x = input('mp3 or no? (y/n): ')
+    if x.lower() == 'y' or x.lower() == 'yes':
+        video_download(videos=videos, directory='mp3_assets', create_directory=True, convert_to_mp3=True)
+    else:
+        video_download(videos=videos, directory='assets', create_directory=True, convert_to_mp3=False)
